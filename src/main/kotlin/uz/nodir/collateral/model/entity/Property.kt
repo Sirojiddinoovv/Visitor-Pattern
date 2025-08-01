@@ -2,7 +2,7 @@ package uz.nodir.collateral.model.entity
 
 import jakarta.persistence.*
 import uz.nodir.collateral.model.enums.CollateralType
-import uz.nodir.collateral.service.business.mapper.PropertyVisitor
+import uz.nodir.collateral.service.business.mapper.PropertyToDtoVisitor
 import java.io.Serializable
 import java.time.LocalDate
 
@@ -49,5 +49,5 @@ abstract class Property(
 
     ) : Serializable, BaseEntity() {
 
-    abstract fun <T> accept(visitor: PropertyVisitor<out T>)
+    abstract fun <T> accept(visitor: PropertyToDtoVisitor<out T>)
 }

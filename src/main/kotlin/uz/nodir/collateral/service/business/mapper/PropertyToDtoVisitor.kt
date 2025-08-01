@@ -1,5 +1,6 @@
 package uz.nodir.collateral.service.business.mapper
 
+import uz.nodir.collateral.model.dto.property.response.PropertyResponseDTO
 import uz.nodir.collateral.model.entity.Equipment
 import uz.nodir.collateral.model.entity.RealEstate
 import uz.nodir.collateral.model.entity.Vehicle
@@ -11,7 +12,7 @@ import uz.nodir.collateral.model.entity.Vehicle
  * Time:8:56 AM
  */
 
-interface PropertyVisitor<T> {
+interface PropertyToDtoVisitor<T> {
 
     fun visit(property: Equipment): T
 

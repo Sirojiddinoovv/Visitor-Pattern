@@ -9,7 +9,7 @@ import uz.nodir.collateral.model.dto.property.response.result.VehicleResultDTO
 import uz.nodir.collateral.model.entity.Equipment
 import uz.nodir.collateral.model.entity.RealEstate
 import uz.nodir.collateral.model.entity.Vehicle
-import uz.nodir.collateral.service.business.mapper.PropertyVisitor
+import uz.nodir.collateral.service.business.mapper.PropertyToDtoVisitor
 
 /**
  * Author:Nodir
@@ -19,7 +19,7 @@ import uz.nodir.collateral.service.business.mapper.PropertyVisitor
  */
 
 @Component
-class PropertyVisitorImpl : PropertyVisitor<PropertyResponseDTO> {
+class PropertyToDtoVisitorImpl : PropertyToDtoVisitor<PropertyResponseDTO> {
 
     private val log = KotlinLogging.logger {}
 
