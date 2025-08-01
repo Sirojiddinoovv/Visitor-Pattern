@@ -1,5 +1,9 @@
 package uz.nodir.collateral.service.business.persistence
 
+import uz.nodir.collateral.model.dto.core.response.ResultData
+import uz.nodir.collateral.model.dto.property.request.PropertyRequestDTO
+import uz.nodir.collateral.model.dto.property.response.PropertyResponseDTO
+
 /**
  * Author:Nodir
  * User:smart
@@ -8,5 +12,7 @@ package uz.nodir.collateral.service.business.persistence
  */
 interface PropertyService  {
 
-    fun save()
+    fun save(requestDTO: PropertyRequestDTO): ResultData<PropertyResponseDTO>
+
+    fun findAll(): ResultData<List<PropertyResponseDTO>>
 }

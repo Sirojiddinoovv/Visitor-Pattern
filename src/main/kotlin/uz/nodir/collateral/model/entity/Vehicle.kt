@@ -3,6 +3,7 @@ package uz.nodir.collateral.model.entity
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
+import uz.nodir.collateral.service.business.mapper.PropertyVisitor
 
 /**
  * Author:Nodir
@@ -20,4 +21,9 @@ data class Vehicle(
 
     @Column(name = "year")
     var year: Int? = null,
-) : Property()
+) : Property() {
+
+    override fun <T> accept(visitor: PropertyVisitor<out T>) {
+        visitor.visit(this)
+    }
+}
