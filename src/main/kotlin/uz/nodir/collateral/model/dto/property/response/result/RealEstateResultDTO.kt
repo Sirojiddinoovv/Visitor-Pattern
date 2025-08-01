@@ -12,11 +12,6 @@ import java.time.LocalDate
  */
 
 data class RealEstateResultDTO(
-
-    val area: Double? = null,
-
-    val address: String? = null,
-
     override val id: Long?,
 
     override val type: CollateralType?,
@@ -25,5 +20,10 @@ data class RealEstateResultDTO(
 
     override val price: Long?,
 
-    override val purchaseDate: LocalDate?
+    override val purchaseDate: LocalDate?,
+
+    val area: Double? = null,
+
+    val address: String? = null
+
 ) : PropertyResponseDTO

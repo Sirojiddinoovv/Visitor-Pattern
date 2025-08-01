@@ -24,7 +24,7 @@ data class Equipment(
     val model: String? = null,
 ) : Property() {
 
-    override fun <T> accept(visitor: PropertyToDtoVisitor<out T>) {
+    override fun <T> accept(visitor: PropertyToDtoVisitor<out T>) =
         visitor.visit(this)
-    }
+
 }

@@ -49,5 +49,5 @@ abstract class Property(
 
     ) : Serializable, BaseEntity() {
 
-    abstract fun <T> accept(visitor: PropertyToDtoVisitor<out T>)
+    abstract fun <T> accept(visitor: PropertyToDtoVisitor<out T>): T
 }

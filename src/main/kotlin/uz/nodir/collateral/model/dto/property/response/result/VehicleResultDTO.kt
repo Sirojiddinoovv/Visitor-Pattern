@@ -12,9 +12,6 @@ import java.time.LocalDate
  */
 data class VehicleResultDTO(
 
-    val model: String? = null,
-
-    val year: Int? = null,
 
     override val id: Long?,
 
@@ -25,4 +22,8 @@ data class VehicleResultDTO(
     override val price: Long?,
 
     override val purchaseDate: LocalDate?,
+
+    val model: String? = null,
+
+    val year: Int? = null
 ): PropertyResponseDTO

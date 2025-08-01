@@ -1,6 +1,8 @@
 package uz.nodir.collateral.service.business.converter
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo
+import com.fasterxml.jackson.databind.DatabindContext
+import com.fasterxml.jackson.databind.JavaType
 import com.fasterxml.jackson.databind.jsontype.impl.TypeIdResolverBase
 import uz.nodir.collateral.exceptions.IncorrectDataException
 import uz.nodir.collateral.model.enums.CollateralType
@@ -29,5 +31,11 @@ class CollateralRequestTypeIdResolver : TypeIdResolverBase() {
 
     override fun getMechanism(): JsonTypeInfo.Id {
         return JsonTypeInfo.Id.CUSTOM
+    }
+
+    override fun typeFromId(context: DatabindContext, id: String): JavaType {
+        val type = CollateralType.valueOf(id)
+
+        return context.constructType(type.paramClass.java)
     }
 }

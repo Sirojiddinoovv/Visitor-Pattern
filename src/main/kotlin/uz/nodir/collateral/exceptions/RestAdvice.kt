@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.http.converter.HttpMessageNotReadableException
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
+import org.springframework.web.bind.annotation.RestControllerAdvice
 import uz.nodir.collateral.model.dto.core.response.CoreError
 import uz.nodir.collateral.model.dto.core.response.ResultData
 
@@ -16,7 +17,7 @@ import uz.nodir.collateral.model.dto.core.response.ResultData
  * Time:3:52 PM
  */
 
-@Configuration
+@RestControllerAdvice
 class RestAdvice {
 
     private val log = KotlinLogging.logger {}

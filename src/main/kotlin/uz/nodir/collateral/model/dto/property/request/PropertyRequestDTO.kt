@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotBlank
 import org.jetbrains.annotations.NotNull
 import uz.nodir.collateral.model.enums.CollateralType
 import uz.nodir.collateral.service.business.converter.CollateralRequestTypeIdResolver
+import uz.nodir.collateral.service.business.mapper.PropertyToEntityVisitor
 import java.time.LocalDate
 
 /**
@@ -25,17 +26,9 @@ import java.time.LocalDate
 @JsonTypeIdResolver(value = CollateralRequestTypeIdResolver::class)
 interface PropertyRequestDTO {
 
-    @get:JsonProperty("id")
-    @get:Min(value = 1L)
-    val id: Long
-
-    @get:JsonProperty("type")
-    @get:NotNull
-    val type: CollateralType?
-
     @get:JsonProperty("description")
     @get:NotBlank
-    val description: String?
+    val description: String
 
     @get:JsonProperty("price")
     @get:Min(value = 1L)
@@ -43,5 +36,8 @@ interface PropertyRequestDTO {
 
     @get:JsonProperty("purchaseDate")
     @get:NotNull
-    val purchaseDate: LocalDate?
+    val purchaseDate: LocalDate
+
+    fun <T> accept(visitor: PropertyToEntityVisitor<T>): T
+
 }

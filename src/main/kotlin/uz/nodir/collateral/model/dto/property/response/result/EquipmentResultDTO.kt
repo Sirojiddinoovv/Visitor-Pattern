@@ -14,10 +14,6 @@ import java.time.LocalDate
 
 data class EquipmentResultDTO(
 
-    val serial: String? = null,
-
-    val model: String? = null,
-
     override val id: Long?,
 
     override val type: CollateralType?,
@@ -26,6 +22,10 @@ data class EquipmentResultDTO(
 
     override val price: Long?,
 
-    override val purchaseDate: LocalDate?
+    override val purchaseDate: LocalDate?,
+
+    val serial: String? = null,
+
+    val model: String? = null
 
     ) : PropertyResponseDTO

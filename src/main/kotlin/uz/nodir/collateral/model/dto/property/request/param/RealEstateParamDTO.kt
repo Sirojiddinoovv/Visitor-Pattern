@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import uz.nodir.collateral.model.dto.property.request.PropertyRequestDTO
 import uz.nodir.collateral.model.enums.CollateralType
+import uz.nodir.collateral.service.business.mapper.PropertyToEntityVisitor
 import java.time.LocalDate
 
 /**
@@ -18,15 +19,11 @@ data class RealEstateParamDTO(
 
     @JsonProperty(value = "area")
     @field:Min(value = 1)
-    val area: Double,
+    val area: Double? = null,
 
     @JsonProperty(value = "address")
     @field:NotBlank(message = "Address is required")
-    val address: String,
-
-    override val id: Long,
-
-    override val type: CollateralType,
+    val address: String? = null,
 
     override val description: String,
 
@@ -34,4 +31,9 @@ data class RealEstateParamDTO(
 
     override val purchaseDate: LocalDate
 
-) : PropertyRequestDTO
+) : PropertyRequestDTO {
+
+    override fun <T> accept(visitor: PropertyToEntityVisitor<T>): T {
+        return visitor.visit(this)
+    }
+}

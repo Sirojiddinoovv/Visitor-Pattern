@@ -12,7 +12,7 @@ import uz.nodir.collateral.model.dto.property.response.PropertyResponseDTO
  */
 interface PropertyService  {
 
-    fun save(requestDTO: PropertyRequestDTO): ResultData<PropertyResponseDTO>
+    fun create(requestDTO: PropertyRequestDTO): ResultData<PropertyResponseDTO>
 
     fun findAll(): ResultData<List<PropertyResponseDTO>>
 }

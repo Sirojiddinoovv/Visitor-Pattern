@@ -1,5 +1,7 @@
 package uz.nodir.collateral.model.dto.core.response
 
+import com.fasterxml.jackson.annotation.JsonInclude
+
 /**
  * Author:Nodir
  * User:smart
@@ -7,6 +9,7 @@ package uz.nodir.collateral.model.dto.core.response
  * Time:8:37 AM
  */
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class ResultData<out T>(
     val isSuccess: Boolean = false,
     val data: T? = null,
@@ -15,7 +18,7 @@ data class ResultData<out T>(
 
     companion object {
 
-        fun <T> success(data: T): ResultData<T> {
+        fun <T> ok(data: T): ResultData<T> {
             return ResultData(
                 isSuccess = true,
                 data = data

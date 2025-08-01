@@ -9,6 +9,7 @@ import uz.nodir.collateral.model.entity.Equipment
 import uz.nodir.collateral.model.entity.Property
 import uz.nodir.collateral.model.entity.RealEstate
 import uz.nodir.collateral.model.entity.Vehicle
+import uz.nodir.collateral.model.enums.CollateralType
 import uz.nodir.collateral.service.business.mapper.PropertyToEntityVisitor
 
 /**
@@ -30,7 +31,7 @@ class PropertyToEntityVisitorImpl : PropertyToEntityVisitor<Property> {
             model = propertyParam.model,
             serial = propertyParam.serial,
         )
-        entity.type = propertyParam.type
+        entity.type = CollateralType.EQUIPMENT
         entity.description = propertyParam.description
         entity.price = propertyParam.price
         entity.purchaseDate = propertyParam.purchaseDate
@@ -46,7 +47,7 @@ class PropertyToEntityVisitorImpl : PropertyToEntityVisitor<Property> {
             model = propertyParam.model,
             year = propertyParam.year,
         )
-        entity.type = propertyParam.type
+        entity.type = CollateralType.VEHICLE
         entity.description = propertyParam.description
         entity.price = propertyParam.price
         entity.purchaseDate = propertyParam.purchaseDate
@@ -62,7 +63,7 @@ class PropertyToEntityVisitorImpl : PropertyToEntityVisitor<Property> {
             area = propertyParam.area,
             address = propertyParam.address,
         )
-        entity.type = propertyParam.type
+        entity.type = CollateralType.REAL_ESTATE
         entity.description = propertyParam.description
         entity.price = propertyParam.price
         entity.purchaseDate = propertyParam.purchaseDate

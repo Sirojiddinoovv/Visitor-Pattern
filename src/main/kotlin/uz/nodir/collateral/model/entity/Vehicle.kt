@@ -23,7 +23,7 @@ data class Vehicle(
     var year: Int? = null,
 ) : Property() {
 
-    override fun <T> accept(visitor: PropertyToDtoVisitor<out T>) {
+    override fun <T> accept(visitor: PropertyToDtoVisitor<out T>) =
         visitor.visit(this)
-    }
+
 }
