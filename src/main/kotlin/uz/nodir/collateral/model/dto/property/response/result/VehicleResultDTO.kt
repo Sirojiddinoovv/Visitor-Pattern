@@ -1,6 +1,6 @@
-package uz.nodir.collateral.model.dto.property.response
+package uz.nodir.collateral.model.dto.property.response.result
 
-import jakarta.persistence.Column
+import uz.nodir.collateral.model.dto.property.response.PropertyResponseDTO
 import uz.nodir.collateral.model.enums.CollateralType
 import java.time.LocalDate
 

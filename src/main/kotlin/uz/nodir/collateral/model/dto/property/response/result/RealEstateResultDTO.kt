@@ -1,5 +1,6 @@
-package uz.nodir.collateral.model.dto.property.response
+package uz.nodir.collateral.model.dto.property.response.result
 
+import uz.nodir.collateral.model.dto.property.response.PropertyResponseDTO
 import uz.nodir.collateral.model.enums.CollateralType
 import java.time.LocalDate
 
@@ -7,15 +8,14 @@ import java.time.LocalDate
  * Author:Nodir
  * User:smart
  * Date:7/31/2025
- * Time:9:01 AM
+ * Time:9:00 AM
  */
 
+data class RealEstateResultDTO(
 
-data class EquipmentResultDTO(
+    val area: Double? = null,
 
-    val serial: String? = null,
-
-    val model: String? = null,
+    val address: String? = null,
 
     override val id: Long?,
 
@@ -26,5 +26,4 @@ data class EquipmentResultDTO(
     override val price: Long?,
 
     override val purchaseDate: LocalDate?
-
-    ) : PropertyResponseDTO
+) : PropertyResponseDTO

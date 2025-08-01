@@ -1,14 +1,9 @@
 package uz.nodir.collateral.model.dto.property.response
 
-import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver
-import jakarta.persistence.Column
-import jakarta.persistence.EnumType
-import jakarta.persistence.Enumerated
-import uz.nodir.collateral.model.entity.Vehicle
 import uz.nodir.collateral.model.enums.CollateralType
-import uz.nodir.collateral.service.business.converter.CollateralTypeIdResolver
+import uz.nodir.collateral.service.business.converter.CollateralResponseTypeIdResolver
 import java.time.LocalDate
 
 /**
@@ -23,7 +18,7 @@ import java.time.LocalDate
     include = JsonTypeInfo.As.PROPERTY,
     property = "type"
 )
-@JsonTypeIdResolver(value = CollateralTypeIdResolver::class)
+@JsonTypeIdResolver(value = CollateralResponseTypeIdResolver::class)
 interface PropertyResponseDTO {
 
     val id: Long?
